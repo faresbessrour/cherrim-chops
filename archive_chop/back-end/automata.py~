@@ -1,0 +1,18 @@
+class Automata:
+    size = 8
+    def __init__(pos_unlocker_x1, pos_unlocker_x2, pos_unlocker_x3):
+        self.pos_unlocker_x1 = pos_unlocker_x1
+        self.pos_unlocker_x2 = pos_unlocked_x2
+        self.pos_unlocker_x3 = pos_unlocker_x3
+
+    def mov_x1():
+        self.pos_unlocker_x1 = (self.pos_unlocker_x1 + 1) % size
+        return self.pos_unlocker_x1
+
+    def mov_x2():
+        self.pos_unlocker_x2 = (self.pos_unlocker_x2 + 1) % (size / 2)
+        return self.pos_unlocker_x2
+
+    def mov_x3():
+        self.pos_unlocker_x3 = (self.pos_unlocker_x3 + 1) % size/2 + size/2
+        return self.pos_unlocker_x3
