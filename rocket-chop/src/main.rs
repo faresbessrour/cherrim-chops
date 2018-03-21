@@ -1,28 +1,23 @@
 #![feature(plugin)]
 #![plugin(rocket_codegen)]
-#![
 extern crate rocket;
-mod index {
+extern crate serde;
+extern crate rocket_contrib;
+use rocket_contrib::Json;
 
-  
-  #[get("/")]
-  pub fn index() -> &'static str {
-    "Rocket-Chop Page"
-  }
+#[derive(Serialize)]
+struct Task {
+  ok: String,
+  not_ok: String
+}
 
-  #[derive(FromForm)]
-  struct Traffic {
-    card: String,
-    state: i8
-  }
-  #[post("/traffic", data = "<traffic>")]
-  pub fn traffic(traffic: From<Traffic>) -> String {
-    data.card
-  }
+#[get("/")]
+pub fn index() -> Json<Task> {
+  Task{ok: "ok", not_ok: "Maybe okay"}
 }
 
 fn main() {
   rocket::ignite()
-    .mount("/", routes![index::index])
+    .mount("/", routes![index])
     .launch();
 }

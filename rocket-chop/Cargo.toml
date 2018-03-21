@@ -6,3 +6,5 @@ authors = ["fares.ai"]
 [dependencies]
 rocket = "0.3.6"
 rocket_codegen = "0.3.6"
+rocket_contrib = "0.3.6"
+serde = "1.0.33"
